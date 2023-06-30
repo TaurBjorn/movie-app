@@ -1,38 +1,28 @@
-const apiKey = '1db253abc39c479cbbae2879a7caed0b';
-const imgApi = 'https://image.tmdb.org/t/p/w1280';
-const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`;
-
-let page = 1;
-let isSearching = false;
+import { ref } from "vue";
 
 
-// Fetch data from moviedb api
-const fetchMovieData = async (url: string) => {
+const searchQuery = ref('');
+const movies = ref<Array<{ id: number; title: string }>>([]);
+
+const searchMovies = async () => {
+    const apiKey = '1db253abc39c479cbbae2879a7caed0b';
+    const query = encodeURIComponent(searchQuery.value);
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
+
     try {
         const response = await fetch(url);
-        if(!response.ok) {
-            throw new Error('No response');
-        }
-        return await response.json()
+        const data = await response.json();
+        movies.value = data.results;
     } catch (error) {
-        return null;
+        console.error(error);
     }
-}
-
-// Fetch and show result based on searchUrl
-const fetchAndShowResult = async (url: string) => {
-    const data = await fetchMovieData(url);
-    if (data && data.results) {
-        showResults(data.results);
-    }
-}
-
-
-
+};
 
 const useMovieData = () => {
     return {
-
+        searchQuery,
+        movies,
+        searchMovies
     }
 }
 

@@ -1,24 +1,30 @@
 <template>
     <div class="container">
-        <div class="search-box">
-            <a href="#">
-                <h1>MovieVerse</h1>
-            </a>
-            <form class="search-form">
-                <input type="text" class="search-input" placeholder="Start Searching...">
-                <button class="search-btn" type="submit">Search</button>
-            </form>
-        </div>
-        <div class="result"></div>
+      <input type="text" v-model="searchQuery" placeholder="Enter movie name" />
+      <button @click="searchMovies">Search</button>
+      <ul>
+        <li v-for="movie in movies" :key="movie.id">{{ movie.title }}</li>
+      </ul>
     </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from "vue";
+  import { defineComponent, onMounted } from "vue";
+  import { useMovieData } from 'src/services/moviedb.service'
 
   export default defineComponent({
     setup() {
-      return {};
+      const { searchMovies, searchQuery, movies } = useMovieData();
+
+      onMounted(() => {
+        searchMovies();
+      })
+
+      return {
+        searchMovies,
+        searchQuery,
+        movies
+      };
     },
   });
 </script>
