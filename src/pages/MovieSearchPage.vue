@@ -13,11 +13,11 @@
       <div class="card-content">
         <div class="card-header">
           <div class="left-content">
-            <h3 style="font-weight: 600">{{ movie.original_title }}</h3>
-            <span style="color: #12efec">{{ movie.release_date }}</span>
+            <h3 style="font-weight: 400">{{ movie.original_title }}</h3>
+            <span style="color: #12efec">Release: {{ movie.release_date }}</span>
           </div>
           <div class="right-content">
-            <a href="#" target="_blank" class="card-btn">See Cover</a>
+            <a href="#" target="_blank" class="card-btn">See Poster</a>
           </div>
           <div class="info">{{ movie.overview }}</div>
         </div>
@@ -95,16 +95,15 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
+  gap: 10px;
 }
-
-
 
 .search-results .card {
   position: relative;
   font-size: 14px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 0.4rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   line-height: 20px;
   width: 285px;
   height: 360px;
@@ -130,14 +129,15 @@ export default defineComponent({
   padding: 8px 0;
   display: flex;
   gap: 15px;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  
 }
 
-.search-results .card .card-content .card-header .left-content {
+.search-results .card .card-content .card-header .left-content h3 {
   color: white;
-  font-size: 1px;
+  font-size: 30px;
 }
 
 .search-results .card .card-content .card-btn {
