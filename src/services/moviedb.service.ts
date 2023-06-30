@@ -2,7 +2,7 @@ import { ref } from "vue";
 
 
 const searchQuery = ref('');
-const movies = ref<Array<{ id: number; title: string }>>([]);
+const movies = ref<Array<{ id: number; title: string; release_date: string; poster_path: string; overview: string }>>([]);
 
 const searchMovies = async () => {
     const apiKey = '1db253abc39c479cbbae2879a7caed0b';
@@ -18,11 +18,20 @@ const searchMovies = async () => {
     }
 };
 
+const getMoviePosterUrl = (posterPath: string) => {
+    if (posterPath) {
+      return `https://image.tmdb.org/t/p/w500${posterPath}`;
+    }
+    return 'https://example.com/placeholder.jpg';
+  };
+
+
 const useMovieData = () => {
     return {
         searchQuery,
         movies,
-        searchMovies
+        searchMovies,
+        getMoviePosterUrl
     }
 }
 
