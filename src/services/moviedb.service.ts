@@ -2,7 +2,7 @@ import { ref } from "vue";
 
 
 const searchQuery = ref('');
-const movies = ref<Array<{ id: number; title: string; release_date: string; poster_path: string; overview: string }>>([]);
+const movies = ref<Array<{ id: number; original_title: string; release_date: string; poster_path: string; overview: string }>>([]);
 
 const searchMovies = async () => {
     const apiKey = '1db253abc39c479cbbae2879a7caed0b';
@@ -31,7 +31,7 @@ const useMovieData = () => {
         searchQuery,
         movies,
         searchMovies,
-        getMoviePosterUrl
+        getMoviePosterUrl,
     }
 }
 
