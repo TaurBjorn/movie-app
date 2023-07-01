@@ -1,5 +1,4 @@
 <template>
-  <div class="main-title"><h3>Movieverse</h3></div>
   <div class="container">
     <div class="search-box">
       <input type="text" v-model="searchQuery" placeholder="Enter movie name..." />
@@ -71,13 +70,6 @@ export default defineComponent({
   flex: flex-wrap;
 }
 
-.main-title {
-  text-align: center;
-  padding: 18px;
-  margin-left: 5px;
-  font-family: bangers;
-}
-
 .search-box {
   width: 100%;
   display: flex;
@@ -102,7 +94,7 @@ export default defineComponent({
   background-color: #01579b;
   color: #fff;
   cursor: pointer;
-  padding: 9px 8px;
+  padding: 8px 8px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 0.4rem 0.4rem 0;
   transition: all 0.5 ease;
@@ -119,7 +111,6 @@ export default defineComponent({
   justify-content: center;
   gap: 10px;
   padding: 30px;
-  
 }
 
 .search-results .card {
@@ -204,6 +195,8 @@ export default defineComponent({
 
 .error-message {
   text-align: center;
+  font-family: bangers;
+  color: white;
 }
 
 @media only screen and (max-width: 500px) {

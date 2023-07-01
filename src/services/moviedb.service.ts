@@ -25,7 +25,7 @@ const searchMovies = async () => {
         if(movies.value.length === 0) {
             showErrorMessage.value = true;
         }
-       
+        
     } catch (error) {
         console.error(error);
         movies.value = [];

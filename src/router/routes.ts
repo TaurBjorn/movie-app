@@ -3,8 +3,8 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('pages/MovieSearchPage.vue'),
-    // children: [{ path: '', component: () => import('pages/MovieSearchPage.vue')}]
+    component: () => import('layouts/TitleBar.vue'),
+    children: [{ path: '', component: () => import('pages/MovieSearchPage.vue')}]
   },
 
   // Always leave this as last one,
