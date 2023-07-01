@@ -13,6 +13,7 @@ const searchMovies = async () => {
         const response = await fetch(url);
         const data = await response.json();
         movies.value = data.results;
+        searchQuery.value = '';
     } catch (error) {
         console.error(error);
     }

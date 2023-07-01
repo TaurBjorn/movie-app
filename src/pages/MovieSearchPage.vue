@@ -5,21 +5,28 @@
       <button class="search-btn" @click="searchMovies">Search</button>
     </div>
   </div>
-  <div class="search-results">
-    <div class="card" v-for="movie in movies" :key="movie.id">
-      <div class="card-media">
-        <img :src="getMoviePosterUrl(movie.poster_path)" alt="title" />
-      </div>
-      <div class="card-content">
-        <div class="card-header">
-          <div class="left-content">
-            <h3 style="font-weight: 400">{{ movie.original_title }}</h3>
-            <span style="color: #12efec">Release: {{ movie.release_date }}</span>
+  <div>
+    <div v-if="movies.length === 0" class="error-message">
+      No search results found.
+    </div>
+    <div v-else class="search-results">
+      <div class="card" v-for="movie in movies" :key="movie.id">
+        <div class="card-media">
+          <img :src="getMoviePosterUrl(movie.poster_path)" alt="title" />
+        </div>
+        <div class="card-content">
+          <div class="card-header">
+            <div class="left-content">
+              <h3 style="font-weight: 400">{{ movie.original_title }}</h3>
+              <span style="color: #12efec"
+                >Release: {{ movie.release_date }}</span
+              >
+            </div>
+            <div class="right-content">
+              <a href="#" target="_blank" class="card-btn">See Poster</a>
+            </div>
+            <div class="info">{{ movie.overview }}</div>
           </div>
-          <div class="right-content">
-            <a href="#" target="_blank" class="card-btn">See Poster</a>
-          </div>
-          <div class="info">{{ movie.overview }}</div>
         </div>
       </div>
     </div>
@@ -71,7 +78,7 @@ export default defineComponent({
   max-width: 400px;
   padding: 8px;
   border-radius: 0.4rem 0 0 0.4rem;
-  border: none;
+  border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -80,7 +87,7 @@ export default defineComponent({
   background-color: #01579b;
   color: #fff;
   cursor: pointer;
-  padding: 6px 8px;
+  padding: 9px 8px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 0.4rem 0.4rem 0;
   transition: all 0.5 ease;
@@ -96,6 +103,7 @@ export default defineComponent({
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  padding: 30px;
 }
 
 .search-results .card {
@@ -132,7 +140,6 @@ export default defineComponent({
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .search-results .card .card-content .card-header .left-content h3 {
@@ -177,4 +184,10 @@ export default defineComponent({
   opacity: 1;
   padding: 8px 0;
 }
+
+.error-message {
+  text-align: center;
+}
+
+
 </style>
