@@ -2,6 +2,7 @@ import { ref } from "vue";
 
 
 const searchQuery = ref('');
+const showErrorMessage = ref(false);
 const movies = ref<Array<{ id: number; original_title: string; release_date: string; poster_path: string; overview: string }>>([]);
 
 const searchMovies = async () => {
@@ -10,12 +11,26 @@ const searchMovies = async () => {
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
 
     try {
+        if (query === "") {
+            movies.value = [];
+            showErrorMessage.value = false;
+            return;
+          }
+
         const response = await fetch(url);
         const data = await response.json();
         movies.value = data.results;
         searchQuery.value = '';
+
+        if(movies.value.length === 0) {
+            showErrorMessage.value = true;
+        }
+       
     } catch (error) {
         console.error(error);
+        movies.value = [];
+        showErrorMessage.value = true;
+        
     }
 };
 
@@ -33,6 +48,7 @@ const useMovieData = () => {
         movies,
         searchMovies,
         getMoviePosterUrl,
+        showErrorMessage
     }
 }
 

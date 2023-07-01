@@ -7,7 +7,7 @@
     </div>
   </div>
   <div>
-    <div v-if="movies.length === 0" class="error-message">
+    <div v-if="showErrorMessage && movies.length === 0" class="error-message">
       No search results found.
     </div>
     <div v-else class="search-results">
@@ -40,7 +40,7 @@ import { useMovieData } from "src/services/moviedb.service";
 
 export default defineComponent({
   setup() {
-    const { searchMovies, searchQuery, movies, getMoviePosterUrl } =
+    const { searchMovies, searchQuery, movies, getMoviePosterUrl, showErrorMessage } =
       useMovieData();
 
     onMounted(() => {
@@ -52,6 +52,7 @@ export default defineComponent({
       searchQuery,
       movies,
       getMoviePosterUrl,
+      showErrorMessage
     };
   },
 });
