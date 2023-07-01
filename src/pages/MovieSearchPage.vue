@@ -124,6 +124,17 @@ export default defineComponent({
   height: 360px;
   overflow: hidden;
   transition: all 0.5 ease;
+  animation-duration: 2.5s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
 }
 
 .search-results .card .card-content {
