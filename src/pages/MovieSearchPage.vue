@@ -7,7 +7,7 @@
     </div>
   </div>
   <div>
-    <div v-if="showErrorMessage && movies.length === 0" class="error-message">
+    <div v-if="showErrorMessage" class="error-message">
       No search results found.
     </div>
     <div v-else class="search-results">

@@ -12,9 +12,9 @@ const searchMovies = async () => {
 
     try {
         if (query === "") {
-            movies.value = [];
-            showErrorMessage.value = false;
-            return;
+            // movies.value = [];
+            return showErrorMessage.value = false;
+            // return;
           }
 
         const response = await fetch(url);
