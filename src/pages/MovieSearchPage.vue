@@ -1,7 +1,8 @@
 <template>
   <div class="container">
+    <div class="main-title"><h3>Movieverse - Popcorn Time</h3></div>
     <div class="search-box">
-      <input type="text" v-model="searchQuery" placeholder="Enter movie name" />
+      <input type="text" v-model="searchQuery" placeholder="Enter movie name..." />
       <button class="search-btn" @click="searchMovies">Search</button>
     </div>
   </div>
@@ -63,6 +64,17 @@ export default defineComponent({
   box-sizing: border-box;
 }
 
+.container {
+  display: flex;
+  flex: flex-wrap;
+}
+
+.main-title {
+  padding: 18px;
+  margin-left: 5px;
+  font-family: bangers;
+}
+
 .search-box {
   width: 100%;
   display: flex;
@@ -101,9 +113,10 @@ export default defineComponent({
 .search-results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
   padding: 30px;
+  
 }
 
 .search-results .card {
@@ -145,6 +158,7 @@ export default defineComponent({
 .search-results .card .card-content .card-header .left-content h3 {
   color: white;
   font-size: 30px;
+  font-family: 'Bangers';
 }
 
 .search-results .card .card-content .card-btn {
@@ -180,7 +194,7 @@ export default defineComponent({
 }
 
 .search-results .card:hover .info {
-  max-height: 200px;
+  max-height: 250px;
   opacity: 1;
   padding: 8px 0;
 }
