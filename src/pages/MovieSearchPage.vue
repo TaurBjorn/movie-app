@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <SearchBox v-model="searchQuery" @click="searchMovies" ></SearchBox>
+    <SearchBox></SearchBox>
   </div>
   <div>
     <div v-if="showErrorMessage" class="error-message">
@@ -40,7 +40,7 @@ export default defineComponent({
     SearchBox,
   },
   setup() {
-    const { searchMovies, searchQuery, movies, getMoviePosterUrl, showErrorMessage } =
+    const { searchMovies, movies, getMoviePosterUrl, showErrorMessage } =
       useMovieData();
 
     onMounted(() => {
@@ -49,7 +49,6 @@ export default defineComponent({
 
     return {
       searchMovies,
-      searchQuery,
       movies,
       getMoviePosterUrl,
       showErrorMessage
@@ -131,7 +130,6 @@ export default defineComponent({
   font-size: 30px;
   font-family: 'Bangers';
 }
-
 .search-results .card .card-content .card-btn {
   color: #fff;
   cursor: pointer;
