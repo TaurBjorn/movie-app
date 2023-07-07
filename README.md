@@ -1,7 +1,9 @@
 # movie-app (movie-app)
 
 Web app for searching movies on name.
-Built wihin the Qausar framework, based on the Vue.js framework. Syntax is written with the Vue3 composition Api.
+Built wihin the Qausar framework, based on the Vue.js framework. Syntax is written with the Vue3 composition API.
+
+API used to GET movies: https://developer.themoviedb.org/docs.
 
 This repository is still a work in progress, but feel free to check the result.
 
