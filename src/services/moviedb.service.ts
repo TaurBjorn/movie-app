@@ -6,7 +6,7 @@ const showErrorMessage = ref(false);
 const movies = ref<Array<{ id: number; original_title: string; release_date: string; poster_path: string; overview: string }>>([]);
 
 const searchMovies = async () => {
-    const apiKey = '1db253abc39c479cbbae2879a7caed0b';
+    const apiKey = process.env.API_KEY || '';
     const query = encodeURIComponent(searchQuery.value);
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
 
