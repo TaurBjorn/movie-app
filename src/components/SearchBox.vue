@@ -32,7 +32,6 @@ export default defineComponent({
   justify-content: center;
   max-width: 1200px;
   align-items: center;
-  margin: 15px 0px 30px 90px;
 }
 
 .search-box input {
