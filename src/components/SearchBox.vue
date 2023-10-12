@@ -4,22 +4,30 @@
       type="text"
       v-model="searchQuery"
       placeholder="Enter movie name..."
+      @keyup.enter="handleEnterKey"
     />
     <button class="search-btn" @click="searchMovies">Search</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useMovieData } from "src/services/moviedb.service";
 
 export default defineComponent({
   setup() {
     const { searchMovies, searchQuery } =
       useMovieData();
+
+      function handleEnterKey() {
+      // Do something when Enter key is pressed
+      // You can use searchQuery.value to access the search query
+      searchMovies();
+      }
     return {
         searchMovies,
-        searchQuery
+        searchQuery,
+        handleEnterKey
     };
   },
 });
