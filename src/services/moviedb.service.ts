@@ -12,8 +12,9 @@ const searchMovies = async () => {
 
     try {
         if (query === "") {
-            return showErrorMessage.value = false;
-          }
+            console.log("error error, I am gonna explode!");
+            return showErrorMessage.value = true;
+        }
 
         const response = await fetch(url);
         const data = await response.json();
