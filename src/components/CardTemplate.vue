@@ -14,7 +14,8 @@
               >
             </div>
             <div class="right-content">
-              <a href="#" target="_blank" class="card-btn">See Poster</a>
+              <!--<a href="posterPath" target="_blank" class="card-btn">See Poster</a>-->
+              <button @click="openPoster" class="card-btn">See Poster</button>
             </div>
             <div class="info">{{ overview }}</div>
           </div>
@@ -50,12 +51,14 @@ export default defineComponent({
     },
   },
 
-  setup() {
-    
+  setup(props) {
+    const openPoster = () => {
+      window.open(props.posterPath, '_blank');
+    }
 
 
     return {
-      
+      openPoster
     };
   },
 });
@@ -117,10 +120,10 @@ export default defineComponent({
   font-family: 'Bangers';
 }
 .search-results .card .card-content .card-btn {
-  color: #fff;
+  color: black;
   cursor: pointer;
   padding: 6px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid black;
   border-radius: 0.4rem;
   transition: all 0.5s ease;
   text-decoration: none;

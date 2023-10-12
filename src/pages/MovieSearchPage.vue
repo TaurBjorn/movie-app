@@ -72,6 +72,7 @@ export default defineComponent({
   text-align: center;
   font-family: bangers;
   color: white;
+  margin-top: 150px;
 }
 
 @media only screen and (max-width: 500px) {
