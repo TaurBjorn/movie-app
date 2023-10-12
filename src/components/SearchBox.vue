@@ -19,11 +19,10 @@ export default defineComponent({
     const { searchMovies, searchQuery } =
       useMovieData();
 
-      function handleEnterKey() {
-      // Do something when Enter key is pressed
-      // You can use searchQuery.value to access the search query
-      searchMovies();
-      }
+      const handleEnterKey = () => {
+        searchMovies();
+      };
+      
     return {
         searchMovies,
         searchQuery,
